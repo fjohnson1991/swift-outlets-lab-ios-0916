@@ -18,13 +18,13 @@ extension Color {
     var colorToDisplay: UIColor {
         switch self {
         case .red:
-            return UIColor.red
+            return UIColor.redColor()
         case .green:
-            return UIColor.green
+            return UIColor.greenColor()
         case .yellow:
-            return UIColor.yellow
+            return UIColor.yellowColor()
         case .blue:
-            return UIColor.blue
+            return UIColor.blueColor()
         }
     }
 }
@@ -86,7 +86,8 @@ extension SimonSays {
         return chosenColors == patternToMatch
     }
     
-    fileprivate mutating func makeGuessWith(_ color: Color) -> Bool {
+    
+    mutating func makeGuessWith(_ color: Color) -> Bool {
         guard chosenColors.count < patternToMatch.count else { return false }
         chosenColors.append(color)
         return patternToMatch[chosenColors.count - 1] == color
@@ -94,6 +95,8 @@ extension SimonSays {
 
     mutating func guessRed() {
         makeGuessWith(.red)
+        
+        
     }
     
     mutating func guessGreen() {
